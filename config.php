@@ -7,6 +7,6 @@ const SIGNATURE = "sSpsig_332&";
 // Database connection data
 namespace Config\DB;
 const USER = "root";
-const PASSWORD = "Mauricio!796";
+const PASSWORD = "";
 const HOST = "localhost";
 const DB = "files_php";
