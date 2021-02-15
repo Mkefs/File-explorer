@@ -66,10 +66,10 @@ Router::add("create_dir", function() {
 });
 
 Router::add("upload_file", function() {
-	/* Loggin_minix\is_logged(); */
-	/* require_once "comp/upload_files.php"; */
-	/* $resp = new Upload_files(); */
-	/* $resp->upload_files(); */
+	Loggin_minix\is_logged();
+	require_once "comp/upload_files.php";
+	$resp = new Upload_files();
+	$resp->upload_files();
 }, "POST");
 
 Router::run();

@@ -41,7 +41,7 @@
 	</div>
 	<!-- Modals -->
 	<new-dir :current_dir="currentDir" @update="get_dir"></new-dir>
-	<upload :current_dir="currentDir"></upload>
+	<upload :current_dir="currentDir" @update="get_dir"></upload>
 </div>
 
 <script src="view/view-comp/upload-file.js"></script>
@@ -122,5 +122,18 @@ let app = new Vue({
 	cursor: pointer;
 	border: 2px dashed lightgray;
 	padding: 100px 10px;
+}
+.tname {
+	display: flex;
+	word-break: break-all;
+}
+.tname .ntxt {
+	display: grid;
+	margin-left: 5px;
+	align-content: center;	
+}
+.drow {
+	user-select: none;
+	cursor: pointer;
 }
 </style>

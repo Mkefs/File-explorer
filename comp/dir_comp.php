@@ -7,7 +7,6 @@ class Dirs_comp {
 	public $dir = null;
 
 	function __construct() {
-		session_start();
 		$this->current_dir = $_SESSION["root"];
 		$this->user_id = $_SESSION["id"];
 		if(isset($_GET["dir"]))

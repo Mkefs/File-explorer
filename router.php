@@ -17,7 +17,9 @@
 
 		public static function run() {
 			$method = strtolower($_SERVER['REQUEST_METHOD']);
-			$url = $_GET['r'];
+			$url = "";
+			if(isset($_GET["r"]))
+				$url = $_GET["r"];
 			$found = false;
 			foreach(self::$routes as $route) { 
 				if(strtolower($route['method']) == $method

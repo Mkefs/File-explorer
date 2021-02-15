@@ -39,10 +39,21 @@ Vue.component("upload", {
 				method: "POST"
 			})
 				.then(resp => {
-					console.log(resp.data);
+					let results = resp.data;
+					for(let i = 0; i < results.length; i++) {
+						if(results[i] != 0) {
+							if(results[i] == 1)
+								M.toast({ 
+									html: `El archivo ${i + 1} exece el limite de subida(2MB)`
+								});
+							else 
+								M.toast({ html: "Error al subir archivo" });
+						}
+					}
+					this.$emit("update");
 				})
 				.catch(err => {
-					console.log(err.response.data);
+					M.toast({ html: "Error subiendo archivos" });
 				});
 		},
 		click_files(e) {

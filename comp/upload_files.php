@@ -6,7 +6,6 @@ class Upload_files {
 	public $current_user;
 
 	function __construct() {
-		session_start();
 		$FILES = $_FILES["files"];
 		$fcount = count($FILES["error"]);
 		
@@ -56,15 +55,16 @@ class Upload_files {
 			);
 			if(!$state->execute()) {
 				$err = true;
+				print_r($state->error);
 				break;
 			}
+			$rootdir = dirname(__DIR__);
 			move_uploaded_file(
 				$this->files[$i]["tmp_name"],
-				"./files/" . $this->files[$i]["rname"]
+				"$rootdir/uploaded/" . $this->files[$i]["rname"]
 			);
 		}
 		if($err){
-			echo $conn->error;
 			$conn->rollback();
 		} else {
 			echo json_encode($this->errors);
