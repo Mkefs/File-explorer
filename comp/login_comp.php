@@ -13,13 +13,13 @@ class Login {
 	public $pass_hash = null;
 	public $rootid = null;
 
-	function __construct($POST) {
-		if(isset($POST['email']))
-			$this->mail = $POST['email'];
-		if(isset($POST['password']))
-			$this->pass = $POST['password'];
-		if(isset($POST['code']))
-			$this->vcode = $POST['code'];
+	function __construct() {
+		if(isset($_POST['email']))
+			$this->mail = $_POST['email'];
+		if(isset($_POST['password']))
+			$this->pass = $_POST['password'];
+		if(isset($_POST['code']))
+			$this->vcode = $_POST['code'];
 	}
 
 	// Login methods

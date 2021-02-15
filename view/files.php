@@ -20,7 +20,7 @@
 			<li><a>Tamaño</a></li>
 		</ul>
 		<!-- Tabla de informacion -->
-		<data-table @change_dir="change_dir" :data="dirdata"></data-table>
+		<data-table v-if="dirdata.length > 1" @change_dir="change_dir" :data="dirdata"></data-table>
 	</div>
 	<!-- Floating button -->
 	<div class="fixed-action-btn">
@@ -41,7 +41,7 @@
 	</div>
 	<!-- Modals -->
 	<new-dir :current_dir="currentDir" @update="get_dir"></new-dir>
-	<upload></upload>
+	<upload :current_dir="currentDir"></upload>
 </div>
 
 <script src="view/view-comp/upload-file.js"></script>
@@ -76,16 +76,14 @@ let app = new Vue({
 				method: "POST"
 			})
 				.then(response => {
-					console.log(response.data);
 					this.dirdata = response.data;
+					console.log(response.data);
 				})
 				.catch(err => {
-					console.log(err.response.data);
 					M.toast({ html: "Error conectandose con el servidor" });
 				});
 		},
 		change_dir(dir) {
-			console.log(dir);
 			this.dirdata = [];
 			this.dirsnames.push(dir.dirname);
 			this.dirs_sum.push(dir._sum);

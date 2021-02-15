@@ -23,6 +23,7 @@ Vue.component("upload", {
 			</div>
 		</form>
 	</div>`,
+	props: ["current_dir"],
 	data() {
 		return {
 			files: []
@@ -34,6 +35,7 @@ Vue.component("upload", {
 			axios({
 				url: "upload_file",
 				data: formdata,
+				params: { dir: this.current_dir },
 				method: "POST"
 			})
 				.then(resp => {

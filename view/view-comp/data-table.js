@@ -17,8 +17,8 @@ Vue.component("data-table", {
 			<tr v-for="file in data[1]">
 				<td>{{file}}</td>
 			</tr>
-			<tr v-show="data.lenght < 1">
-				<td class="center-align grey-text" colspan="3">Carpeta vacia</td>
+			<tr v-show="!(data[1].length > 0) && !(data[0].length > 0)">
+				<td class="grey-text center-align" colspan="3"> Carpeta vacia </td>
 			</tr>
 		</tbody>
 	</table>`,

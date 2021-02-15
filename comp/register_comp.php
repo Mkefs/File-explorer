@@ -8,9 +8,9 @@ class Register {
 	private $mail_code = null;
 
 	// Parse data
-	function __construct($POST_DATA) {
-		$this->mail = $POST_DATA['email'];
-		$this->password = $POST_DATA['password'];
+	function __construct() {
+		$this->mail = $_POST['email'];
+		$this->password = $_POST['password'];
 		$this->password_hash = password_hash(
 			hash_hmac("sha256", $this->password, Config\PEPER),
 			PASSWORD_BCRYPT

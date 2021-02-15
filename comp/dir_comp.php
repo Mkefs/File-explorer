@@ -6,17 +6,17 @@ class Dirs_comp {
 	public $user_id = null;
 	public $dir = null;
 
-	function __construct($GET) {
+	function __construct() {
 		session_start();
 		$this->current_dir = $_SESSION["root"];
 		$this->user_id = $_SESSION["id"];
-		if(isset($GET["dir"]))
-			$this->current_dir = $GET["dir"];
+		if(isset($_GET["dir"]))
+			$this->current_dir = $_GET["dir"];
 
-		if(isset($GET["name"]))
-			$this->dir = $GET['name'];
-		elseif(isset($GET["sum"]))
-			$this->dir = $GET["sum"];
+		if(isset($_GET["name"]))
+			$this->dir = $_GET['name'];
+		elseif(isset($_GET["sum"]))
+			$this->dir = $_GET["sum"];
 	}
 	
 	public function get_user_dir_data() {
